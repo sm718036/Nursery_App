@@ -1,9 +1,9 @@
 {
+  "homepage": "https://github.com/sm718036/Nursery_App.git",
   "name": "frontend",
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://github.com/sm718036/Nursery_App.git",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
