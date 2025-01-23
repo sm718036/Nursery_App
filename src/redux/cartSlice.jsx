@@ -43,7 +43,6 @@ export const cartSlice = createSlice({
       const randomNumber = Math.floor(Math.random() * 256000)
       alert(`Checkout Successful.Thank you for shopping with us. \nYour order id is #${randomNumber}.`)
       state.cart = []
-      window.location.replace('/plants')
     }
   },
 });
