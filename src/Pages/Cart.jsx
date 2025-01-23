@@ -87,7 +87,7 @@ function Cart() {
         >
           Shop More
         </button>
-        <button className="bg-green-500 text-white px-4 py-1 w-[150px] rounded" onClick={()=>dispatch(checkout())}>
+        <button className={`${cart.length?'bg-green-500 text-white':'bg-green-200 text-gray-500 cursor-not-allowed'} px-4 py-1 w-[150px] rounded`} onClick={()=>dispatch(checkout())}>
           Checkout
         </button>
       </div>

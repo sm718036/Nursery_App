@@ -40,6 +40,10 @@ export const cartSlice = createSlice({
       }
     },
     checkout: (state)=>{
+      if(state.cart.length === 0){
+        alert("Your cart is empty. Please add something to the cart.")
+        return
+      }
       const randomNumber = Math.floor(Math.random() * 256000)
       alert(`Checkout Successful.Thank you for shopping with us. \nYour order id is #${randomNumber}.`)
       state.cart = []
