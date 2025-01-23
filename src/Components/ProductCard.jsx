@@ -1,10 +1,20 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../redux/cartSlice";
-import {useState} from 'react'
+import {useState,useEffect} from 'react'
 
 function ProductCard({product}) {
+  const {cart} = useSelector(state => state.cart)
   const dispatch = useDispatch();
   const [disabled, setDisabled] = useState(false)
+
+  useEffect(()=>{
+    if(cart.find(item => item.id === product.id)){
+      setDisabled(true)
+    }else{
+      setDisabled(false)
+    }
+  }, [cart])
+
   return (
     <div
       key={product.id}
@@ -24,7 +34,7 @@ function ProductCard({product}) {
       </div>
       <button
         className={`${disabled ? 'bg-green-200 text-gray-500 cursor-not-allowed' : ' bg-green-500 text-white'} w-[95%] py-1 mb-2 rounded`}
-        onClick={(e) => {
+        onClick={() => {
           dispatch(addToCart({
             id: product.id,
             name: product.name,
@@ -33,9 +43,8 @@ function ProductCard({product}) {
             description: product.description,
             quantity: 1,
           }))
-          e.currentTarget.disabled = true
-          setDisabled(true)
         }}
+        disabled={disabled}
       >
         Add to Cart
       </button>

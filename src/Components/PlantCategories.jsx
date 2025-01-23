@@ -1,7 +1,4 @@
-import { useState, useEffect } from "react";
 import ProductCard from "./ProductCard";
-import { useSelector } from "react-redux";
-import { addToCart } from "../redux/cartSlice";
 
 function PlantCategories() {
   const plantsCatalogue = {
@@ -240,7 +237,6 @@ function PlantCategories() {
       },
     ],
   };
-  const {cart} = useSelector(state => state.cart)
   return (
     <>
       <div className="flex flex-wrap justify-center items-center gap-3 p-2">
